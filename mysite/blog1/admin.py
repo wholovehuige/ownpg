@@ -1,4 +1,8 @@
 from django.contrib import admin
-from . import models
+from .models import Article
 # Register your models here.
-admin.site.register(models.Article)
+#配置类
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('id','title','content','pub_time')
+#注册
+admin.site.register(Article,ArticleAdmin)
