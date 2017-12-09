@@ -4,5 +4,6 @@ from .models import Article
 #配置类
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('id','title','content','pub_time')
+    list_filter = ('pub_time',)
 #注册
 admin.site.register(Article,ArticleAdmin)
