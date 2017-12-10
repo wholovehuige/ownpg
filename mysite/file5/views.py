@@ -13,7 +13,6 @@ class UserForm(forms.Form):
     username = forms.CharField()
     headImg = forms.FileField()
 
-
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
@@ -37,7 +36,13 @@ def register(request):
                 print(e.__str__())
             finally:
                 f.close()
-            return HttpResponse("ok")
+            users = User.objects.all()
+            return render(request, "file/fileupload.html", {"users": users})
     else:
         uf = UserForm
     return render_to_response('file/register.html', {'uf': uf})
+
+def users(request):
+    users  = User.objects.all()
+    return render(request,"file/fileupload.html",{"users":users})
+

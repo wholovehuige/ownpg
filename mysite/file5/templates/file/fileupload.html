@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    {% for user in users%}
+    <tr>
+        <td>{{user.username}}</td>
+        <td>{{user.headImg}}</td>
+    </tr>
+    <br/>
+    {%endfor%}
+</div>
+<a href="{%url 'register'%}">添加</a>
+</body>
+</html>
