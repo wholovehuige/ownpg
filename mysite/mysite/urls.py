@@ -18,6 +18,6 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog1/',include('blog1.urls')),
+    url(r'^oradb/',include('oradb.urls')),
     url(r'^file/',include('file5.urls'))
 ]

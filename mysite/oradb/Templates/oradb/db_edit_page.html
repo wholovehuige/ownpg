@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{%url 'editDbMessage'%}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{message.id | default:'0'}}"/>
+    <label>ip
+        <input type="text" name="ip_address" value="{{message.ip_address}}"/>
+    </label>
+    <br/>
+    <label>port
+        <input type="text" name="port" value="{{message.port}}"/>
+    </label>
+    <br/>
+     <label>db_name
+        <input type="text" name="db_name" value="{{message.db_name}}"/>
+    </label>
+    <br/>
+     <label>username
+        <input type="text" name="username" value="{{message.username}}"/>
+    </label>
+    <br/>
+     <label>password
+        <input type="text" name="password" value="{{message.password}}"/>
+    </label>
+    <br/>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

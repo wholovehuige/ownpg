@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="margin-left: 100px ;margin-right: 100px">
+    <table id="allData" class="table table-bordered">
+        <caption>所有数据</caption>
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>名称</td>
+            <td>表名</td>
+            <td>支持查询类型</td>
+            <td>查询字段</td>
+            <td>是否可用</td>
+        </tr>
+        </thead>
+        <!--<thead id="data" v-for="site in data.allData">-->
+        {% for message in messages%}
+        <tr>
+            <td>{{table.id}}</td>
+            <td>{{table.name}}</td>
+            <td>{{table.table_name}}</td>
+            <td>{{table.search_type}}</td>
+            <td>{{table.search_value}}</td>
+            <td>{{table.isUse}}</td>
+        </tr>
+        {%endfor%}
+
+        </thead>
+    </table>
+</div>
+</body>
+</html>
