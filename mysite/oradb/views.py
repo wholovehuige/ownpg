@@ -6,7 +6,7 @@ import cx_Oracle
 # Create your views here.
 
 def to_db_edit(request):
-    return render(request, "oradb/db_edit.html",{'messages':""})
+    return render(request, "oradb/db_edit_page.html",{'messages':""})
 
 def getJSONData(request):
     messages = models.dbMessage.objects.all()
