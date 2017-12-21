@@ -81,11 +81,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
+        'HOST': 'rm-uf6f66d26gd6rl06io.mysql.rds.aliyuncs.com',
         'PORT': '3306',
         'NAME': 'oradb',
         'USER': 'root',
-        'PASSWORD': 'password'
+        'PASSWORD': '123qwe!@#'
     }
 }
 
