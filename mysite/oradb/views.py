@@ -5,6 +5,9 @@ import json
 import cx_Oracle
 # Create your views here.
 
+def to_db_edit(request):
+    return render(request, "oradb/db_edit.html",{'messages':""})
+
 def getJSONData(request):
     messages = models.dbMessage.objects.all()
     dictStr = []
@@ -20,7 +23,6 @@ def getJSONData(request):
     return HttpResponse(jsonArray)
 def getAllDbData(request):
     messages = models.dbMessage.objects.all()
-    print(messages[0].ip_address)
     return render(request, "oradb/home.html", {'messages': messages})
 
 def db_page(request,id):

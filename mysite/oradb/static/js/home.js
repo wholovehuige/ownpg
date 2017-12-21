@@ -1,7 +1,7 @@
 new Vue({
     el:'#allData',
     data:{
-        data:'allData'
+        data:''
     },
     method(){
         this.getAllData()
@@ -10,11 +10,12 @@ new Vue({
         getAllData:function () {
             $.ajax({
                 type:'GET',
-                url:'jsondata',
+                url:'/oradb/jsondata/',
+                dataType: 'json',
                 cache:false,
                 success:function (data) {
                     console.log(data)
-                    // ve.allData = data;
+                    ve.data = data;
                 }
             })
         }
