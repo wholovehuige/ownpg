@@ -8,6 +8,11 @@ import cx_Oracle
 def to_db_edit(request):
     return render(request, "oradb/db_edit_page.html",{'messages':""})
 
+def to_db_home(request,id):
+    print(id)
+    tables = models.topTable.objects.all()
+    return render(request, "oradb/db_home.html", {'tables': tables})
+
 def getJSONData(request):
     messages = models.dbMessage.objects.all()
     dictStr = []

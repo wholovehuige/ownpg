@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
     <title>Title</title>
 </head>
 <body>
@@ -19,7 +21,7 @@
         </tr>
         </thead>
         <!--<thead id="data" v-for="site in data.allData">-->
-        {% for message in messages%}
+        {% for table in tables%}
         <tr>
             <td>{{table.id}}</td>
             <td>{{table.name}}</td>

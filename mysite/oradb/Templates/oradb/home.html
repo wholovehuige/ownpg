@@ -3,11 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-    <script type="text/javascript" src="{%static 'js/jquery-1.9.1.min.js'%}"></script>
-    <script type="text/javascript" src="{%static 'js/vue.min.js'%}"></script>
+    <!--<script type="text/javascript" src="{%static 'js/jquery-1.9.1.min.js'%}"></script>-->
+    <!--<script type="text/javascript" src="{%static 'js/vue.min.js'%}"></script>-->
     <!--<script type="text/javascript" src="{%static 'js/home.js'%}"></script>-->
     <title>home Page</title>
 </head>
@@ -25,6 +23,7 @@
             <td>password</td>
             <td>修改</td>
             <td>查看链接状态</td>
+            <td>编辑</td>
         </tr>
         </thead>
         <tbody >
@@ -38,6 +37,7 @@
             <td>{{ message.password }}</td>
             <td><a href="{%url 'dbMessage' message.id%}">修改</a></td>
             <td><a href="{%url 'testConn' message.id%}">测试</a></td>
+            <td><a href="{%url 'to_db_home' message.id%}">编辑</a></td>
         </tr>
         {%endfor%}
         </tbody>

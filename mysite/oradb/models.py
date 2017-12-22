@@ -15,7 +15,7 @@ class dbMessage(models.Model):
 
 class topTable(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    db_id = models.BigIntegerField(max_length=32)
+    db_id = models.BigIntegerField()
     name = models.CharField(max_length=32 , default='')
     table_name = models.CharField(max_length=32 , default='')
     search_value = models.CharField(max_length=128, default='')
@@ -30,6 +30,6 @@ class topTable(models.Model):
 class relationTable(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     topName = models.CharField(max_length=32,default='')
-    topId = models.BigIntegerField(max_length=32)
+    topId = models.BigIntegerField()
     ralation_field = models.CharField(max_length=32,default='')
     search_col = models.CharField(max_length=32,default='')
