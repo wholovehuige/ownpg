@@ -23,7 +23,7 @@
             <td>password</td>
             <td>修改</td>
             <td>查看链接状态</td>
-            <td>编辑</td>
+            <td>查看表</td>
         </tr>
         </thead>
         <tbody >
@@ -37,7 +37,7 @@
             <td>{{ message.password }}</td>
             <td><a href="{%url 'dbMessage' message.id%}">修改</a></td>
             <td><a href="{%url 'testConn' message.id%}">测试</a></td>
-            <td><a href="{%url 'to_db_home' message.id%}">编辑</a></td>
+            <td><a href="{%url 'to_db_home' message.id%}">查看表</a></td>
         </tr>
         {%endfor%}
         </tbody>

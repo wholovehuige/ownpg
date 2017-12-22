@@ -1,16 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
-from . import models
+from . import models ,db_methods
 import json
-import cx_Oracle
 # Create your views here.
 
 def to_db_edit(request):
     return render(request, "oradb/db_edit_page.html",{'messages':""})
 
 def to_db_home(request,id):
-    print(id)
-    tables = models.topTable.objects.all()
+    tables = models.topTable.objects.filter(db_id = id)
     return render(request, "oradb/db_home.html", {'tables': tables})
 
 def getJSONData(request):
@@ -64,23 +62,23 @@ def test_oracle1_conn(request,id):
         db_name = message.db_name
         username = message.username
         password = message.password
-        print("host:"+host+"db_name:"+db_name)
-        tns = cx_Oracle.makedsn(host,port,db_name)
-        conn = cx_Oracle.connect(username,password,tns)
-        cursor = conn.cursor()
-        sql = 'select table_name from user_tables WHERE ROWNUM<17'
-        cursor.execute(sql)
-        results = cursor.fetchall()
-        for row in results:
-            print(row[0])
-            de_sql = 'select * from "'+row[0]+'"'
-            print(de_sql)
-            cursor.execute(de_sql)
-            allcolum = cursor.fetchall()
-            for line in allcolum:
-                print(line)
-        cursor.close()
-        conn.close()
+        conn = db_methods.oracle_connection(host,port,db_name,username,password)
+        print(conn)
+        if conn :
+            cursor = conn.cursor()
+            sql = 'select table_name from user_tables WHERE ROWNUM<17'
+            cursor.execute(sql)
+            results = cursor.fetchall()
+            for row in results:
+                print(row[0])
+                de_sql = 'select * from "'+row[0]+'"'
+                print(de_sql)
+                cursor.execute(de_sql)
+                allcolum = cursor.fetchall()
+                for line in allcolum:
+                    print(line)
+            cursor.close()
+            conn.close()
     messages = models.dbMessage.objects.all()
     return render(request, "oradb/home.html", {"messages": messages})
 
